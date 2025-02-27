@@ -7,8 +7,8 @@ const fetchData = () => {
   fetch("customize.json")
     .then(data => data.json())
     .then(data => {
-      dataArr = Object.keys(data)
-      dataArr.map(customData => {
+      const dataArr = Object.keys(data) // 使用 const 声明
+      dataArr.forEach(customData => { // 使用 forEach 替代 map
         if (data[customData] !== "") {
           if (customData === "imagePath") {
             document
@@ -20,7 +20,6 @@ const fetchData = () => {
               link.rel = 'stylesheet'
               link.href = font.path
               document.head.appendChild(link)
-              //设置body字体
               document.body.style.fontFamily = font.name
             })
           } else if (customData === "music") {
@@ -32,20 +31,15 @@ const fetchData = () => {
           }
         }
 
-        // Check if the iteration is over
-        // Run amimation if so
         if (dataArr.length === dataArr.indexOf(customData) + 1) {
           document.querySelector("#startButton").addEventListener("click", () => {
             document.querySelector(".startSign").style.display = "none"
             animationTimeline()
-          }
-          )
-          // animationTimeline()
+          })
         }
       })
     })
 }
-
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
