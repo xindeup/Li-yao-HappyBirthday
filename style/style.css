@@ -132,16 +132,13 @@ canvas {
   max-width: 100%;
   height: auto;
 }
-
 .six .hat {
   position: absolute;
   width: 80px;
-  top: -70px;
+  top: -90px; /* 将原来的 -70px 改为 -90px，使其向上移动 */
   left: 49%;
-  /* 等比例扩大图片到2倍 */
   transform: scale(1.1);
 }
-
 .baloons img {
   display: inline-block;
   position: absolute;
